@@ -13,6 +13,8 @@ public class PrudouctSearch : MonoBehaviour
     public InputField ProductSize;
     public InputField ProductWorkmanship;
 
+    public GameObject GridItem;
+    public Transform GridItemTransform;
     //空字串查詢
     private bool EnableNullInput;
     public List<Product> ProductList = new List<Product>();   // 資料儲存
@@ -30,7 +32,7 @@ public class PrudouctSearch : MonoBehaviour
     private void OnEnable()
     {
         OnCloseClear();
-        EnableNullInput = false;
+        EnableNullInput = true;
         if (null != SearchGrid) SearchGrid.SetActive(false);
     }
     // Use this for initialization
@@ -82,7 +84,33 @@ public class PrudouctSearch : MonoBehaviour
     #endregion
 
     #region searchProducts
+    
+    public void InitGrid()
+    {
+        DestroyAllChildren();
+        for (int i = 0; i < ProductList.Count; i++)
+        {
+            GameObject go = UnityEngine.Object.Instantiate(GridItem, GridItemTransform);
+            go.SetActive(true);
+            ProductItem _item = go.GetComponent<ProductItem>();
+            _item.InitData(ProductList[i]);
+        }
 
+        // 強制捲動到最頂
+        ScrollRect scrollRect = GridItemTransform.parent.GetComponentInParent<ScrollRect>();
+        if (scrollRect != null)
+        {
+            scrollRect.verticalNormalizedPosition = 1f;   // 1 = 最頂部，0 = 最底部
+        }
+    }
+
+    public void DestroyAllChildren()
+    {
+        foreach (Transform child in GridItemTransform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
     #endregion
 
 
@@ -98,7 +126,7 @@ public class PrudouctSearch : MonoBehaviour
 
         if (null != SearchGrid) SearchGrid.SetActive(true);
 
-
+        InitGrid();
     }
     public void OnShowClear(Text input)
     {
