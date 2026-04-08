@@ -76,12 +76,7 @@ public class PrudouctSearch : MonoBehaviour
         }
     }
     #endregion
-
-    #region filterProducts
-
-
-    #endregion
-
+  
     #region searchProducts
 
     public void InitGrid()
@@ -141,7 +136,6 @@ public class PrudouctSearch : MonoBehaviour
         }
     }
     #endregion
-
 
     #region Button
     public void OnSearch()
