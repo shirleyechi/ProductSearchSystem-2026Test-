@@ -1,0 +1,9 @@
+{
+  "products": [
+    {"ProductID": 1, "ProductName": "藍牙耳機", "ProductType": "電子產品", "ProductSize": 0, "ProductWorkmanship": "優良"},
+    {"ProductID": 2, "ProductName": "不鏽鋼水杯", "ProductType": "生活用品", "ProductSize": 500, "ProductWorkmanship": "一般"},
+    {"ProductID": 3, "ProductName": "機械鍵盤", "ProductType": "電子產品", "ProductSize": 0, "ProductWorkmanship": "優良"},
+    {"ProductID": 4, "ProductName": "瑜伽墊", "ProductType": "運動用品", "ProductSize": 180, "ProductWorkmanship": "普通"},
+    {"ProductID": 5, "ProductName": "咖啡機", "ProductType": "電子產品", "ProductSize": 0, "ProductWorkmanship": "優良"}
+  ]
+}
